@@ -17,9 +17,24 @@ namespace TransparentClockApp
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
-            //this.MouseEnter += (sebder, e) => { timer.Tick += null; this.Hide(); };
-            //this.MouseLeave += (sebder, e) => { this.Show(); timer.Tick += Timer_Tick; };
-            this.MouseLeftButtonDown += (sender, e) => { this.DragMove(); };
+            this.MouseEnter += (sebder, e) => {
+                TimeTextBlock.Text = "";
+                timer.Stop();
+            };
+            this.MouseLeave += (sebder, e) => {
+                TimeTextBlock.Foreground = new SolidColorBrush(Colors.White);
+                TimeTextBlock.Text = DateTime.Now.ToString("HH:mm");
+                timer.Start();
+            };
+            this.MouseLeftButtonDown += (sender, e) => {
+                TimeTextBlock.Foreground = new SolidColorBrush(Colors.DimGray);
+                TimeTextBlock.Text = DateTime.Now.ToString("HH:mm");
+                this.DragMove();
+            };
+            this.MouseLeftButtonUp += (sender, e) => {
+                TimeTextBlock.Foreground = new SolidColorBrush(Colors.White);
+            };
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
