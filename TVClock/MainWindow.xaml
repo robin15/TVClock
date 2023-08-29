@@ -8,6 +8,6 @@
         Topmost="True"
         >
     <Grid HorizontalAlignment="Center" Width="185" Height="161" VerticalAlignment="Top">
-        <TextBlock x:Name="TimeTextBlock" Text="12:34" FontFamily="Digital-7" FontSize="72" Foreground="White" Margin="0,10,0,79" HorizontalAlignment="Center" Width="192"/>
+        <TextBlock x:Name="TimeTextBlock" Text="" FontFamily="Digital-7" FontSize="72" Foreground="White" Margin="0,10,0,0" HorizontalAlignment="Center" Width="192" Height="72" VerticalAlignment="Top" Visibility="Visible"/>
     </Grid>
 </Window>
